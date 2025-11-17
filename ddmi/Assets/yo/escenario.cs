@@ -3,6 +3,7 @@ using UnityEngine;
 public class escenario : MonoBehaviour
 {
     public float speed = 1f;
+    public float tamaño;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,17 +17,17 @@ public class escenario : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("destruir"))
-        {
-            Destroy(gameObject);
-        }
+      
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("crear"))
         {
-            generador.CrearPiezaNueva();
-            
+            generador.CrearPiezaNueva(transform.position - new Vector3(0, tamaño, 0));
+        }  
+        if (collision.gameObject.CompareTag("destruir"))
+        {
+            Destroy(gameObject);
         }
     }
 }

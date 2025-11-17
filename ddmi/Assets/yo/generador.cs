@@ -19,8 +19,8 @@ public class generador : MonoBehaviour
     {
         
     }
-    public static void CrearPiezaNueva()
+    public static void CrearPiezaNueva(Vector3 spawnPosition )
     {
-        Instantiate(instance.pieza[Random.Range(0,instance.pieza.Count)], new Vector3(-0.59499f, -7.64f, 0), Quaternion.identity);
+        Instantiate(instance.pieza[Random.Range(0,instance.pieza.Count)], spawnPosition, Quaternion.identity);
     }
 }

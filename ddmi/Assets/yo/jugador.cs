@@ -1,8 +1,11 @@
 using UnityEngine;
+using TMPro;
 [RequireComponent (typeof(Rigidbody2D))]
 public class jugador : MonoBehaviour
 {
     int speed=  7;
+    public int puntos = 10;
+    public TextMeshProUGUI contador_puntos;
     private Rigidbody2D rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -14,8 +17,8 @@ public class jugador : MonoBehaviour
     void Update()
     {
         if (Input.GetKey(KeyCode.D))
-        {
-            transform.Translate(speed * Time.deltaTime, 0, 0);
+        {print("adfaqd");
+            transform.Translate(speed * Time.deltaTime,0,0);
         }
         if (Input.GetKey(KeyCode.A))
         {
@@ -43,5 +46,15 @@ public class jugador : MonoBehaviour
         {
             speed = 4;
         }
+        
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+       if(collision.gameObject.CompareTag("mo"))
+        {
+           puntos = 5 + puntos;
+            contador_puntos.text = puntos.ToString();
+        } 
+
     }
 }
