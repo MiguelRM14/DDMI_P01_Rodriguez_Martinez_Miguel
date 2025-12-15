@@ -8,6 +8,7 @@ TagManager:
   - destruir
   - crear
   - mo
+  - rampa
   layers:
   - Default
   - TransparentFX
